@@ -13,16 +13,17 @@ over CTR method.
 class Encryption():
     ### __init__(self, key: private key, iv: initialization vector)
     def __init__(self, key, iv):
-        key = binascii.unhexlify(key)
-        counter = pyaes.Counter(initial_value = iv)
-        self._aes = pyaes.AESModeOfOperationCTR(key, counter = counter)
+        self.key = binascii.unhexlify(key)
+        self.counter = pyaes.Counter(initial_value = iv)
     
     ### encrypt(self, plaintext: input text)
     ### returns ciphertext
     def encrypt(self, plaintext):
-        return self._aes.encrypt(plaintext)
+        aes = pyaes.AESModeOfOperationCTR(self.key)
+        return aes.encrypt(plaintext)
     
     ### decrypt(self, ciphertext: encrypted text)
     ### returns plaintext
     def decrypt(self, ciphertext):
-        return self._aes.decrypt(ciphertext)
+        aes = pyaes.AESModeOfOperationCTR(self.key)
+        return aes.decrypt(ciphertext)
