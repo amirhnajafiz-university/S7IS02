@@ -44,6 +44,7 @@ def __add_salt(key):
 
     # salt – securely-generated random bytes, 
     # e.g. "df1f2d3f4d77ac66e9c5a6c3d8f921b6" (minimum 64 bits, 128 bits is recommended)
+    # generating 256 bit salt
     salt = os.urandom(32)
 
     # sha256 hash-function for calculating HMAC, e.g. SHA256
