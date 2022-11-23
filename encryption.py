@@ -12,7 +12,8 @@ over CTR method.
 class Encryption():
     ### __init__(self, key: private key, iv: initialization vector)
     def __init__(self, key, iv):
-        self._aes = pyaes.AESModeOfOperationCTR(key, iv = iv)
+        counter = pyaes.Counter(initial_value = iv)
+        self._aes = pyaes.AESModeOfOperationCTR(key, counter = counter)
     
     ### encrypt(self, plaintext: input text)
     ### returns ciphertext

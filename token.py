@@ -5,16 +5,17 @@ import secrets
 
 # module constants
 
-# Return a random byte string containing nbytes number of bytes. 
-# If nbytes is None or not supplied, a reasonable default is used.
-SIZE = 16
+# When generating a random number with secrets
+# we need to set a limit.
+# The limit is 16 bytes or 64 bits or a 247 int.
+LIMIT = 247
 
 
 
 """
 generate_token()
 
-This function generates bytes tokens based on SIZE variable.
+This function generates tokens based on LIMIT variable.
 """
 def generate_token():
-    return secrets.token_bytes(SIZE)
+    return secrets.randbelow(LIMIT)
