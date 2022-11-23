@@ -6,11 +6,11 @@ from encryption import Encryption
 
 
 if __name__ == "__main__":
-    private = read_key()
+    key = read_key()
     iv = generate_token()
 
     print(f"Initialization Vector:\n\tvalue: {iv}\n")
 
-    enc = Encryption(private, iv)
+    enc = Encryption(key, iv)
 
     print(enc.encrypt("Hello world"))

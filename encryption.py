@@ -1,5 +1,6 @@
 # import pyaes to create encryption and decryption methods
 import pyaes
+import binascii
 
 
 
@@ -12,6 +13,7 @@ over CTR method.
 class Encryption():
     ### __init__(self, key: private key, iv: initialization vector)
     def __init__(self, key, iv):
+        key = binascii.unhexlify(key)
         counter = pyaes.Counter(initial_value = iv)
         self._aes = pyaes.AESModeOfOperationCTR(key, counter = counter)
     

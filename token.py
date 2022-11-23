@@ -7,8 +7,8 @@ import secrets
 
 # When generating a random number with secrets
 # we need to set a limit.
-# The limit is 16 bytes or 64 bits or a 247 int.
-LIMIT = 247
+# The limit is 16 bytes or 64 bits or a 256 int.
+LIMIT = 256
 
 
 
