@@ -4,10 +4,15 @@ from key import read_key
 from token import generate_token
 # importing encryption for using encryption and decryption methods
 from encryption import Encryption
+# importing utils
+import utils
 
 
 
 if __name__ == "__main__":
+    # set project requirements
+    start()
+
     # reading key and generating iv
     key = read_key()
     iv = generate_token()
