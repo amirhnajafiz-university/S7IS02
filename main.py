@@ -42,7 +42,7 @@ if __name__ == "__main__":
         data = ""
 
         # get user operation
-        op = input("Enter operation (D, E, Q, C) > ")
+        op = input("\nEnter operation (D [Dec] , E [Enc], Q [Quit], C[Change file]) > ")
 
         if op == "Q":
             break
@@ -90,4 +90,4 @@ if __name__ == "__main__":
 
                 continue
         
-        print("[OK][OPERATION] operation is done.")
+        print("\n[OK][OPERATION] operation is done.")
