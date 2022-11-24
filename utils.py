@@ -11,4 +11,4 @@ MAIN = "gen"
 def start():
     if not os.path.exists(MAIN):
         # Create a new directory because it does not exist
-        os.makedirs(path)
+        os.makedirs(MAIN)
