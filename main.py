@@ -44,26 +44,30 @@ if __name__ == "__main__":
         if op == "E":
             try:
                 with open(path, "r") as file:
-                    data = file.readline().strip()
+                    data = file.readline()
 
                     print(f"Read:\n\tfile: {path}\n\tvalue: {data}\n")
 
                     cipher = encryptor.encrypt(data)
 
-                    with open(eout, "w") as out_file:
-                        out_file.write(str(cipher))
+                    print(f"Encode:\n\t{cipher}\n")
+
+                    with open(eout, "wb") as out_file:
+                        out_file.write(cipher)
             except EnvironmentError:
                 print("[ERROR][FILE] file key not found!")
 
                 continue
         else:
             try:
-                with open(eout, "r") as file:
-                    data = file.readline().strip()
+                with open(eout, "rb") as file:
+                    data = file.readline()
 
                     print(f"Read:\n\tfile: {path}\n\tvalue: {data}\n")
 
                     plaintext = encryptor.decrypt(data)
+
+                    print(f"Decode:\n\t{plaintext}\n")
 
                     with open(dout, "w") as out_file:
                         out_file.write(str(plaintext))
