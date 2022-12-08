@@ -16,18 +16,18 @@ class Encryption():
     ### __init__(self, key: private key, iv: initialization vector)
     def __init__(self, key, iv):
         self.key = binascii.unhexlify(key)
-        self.counter = pyaes.Counter(initial_value = iv)
+        self.iv = iv
     
     ### encrypt(self, plaintext: input text)
     ### returns ciphertext
     def encrypt(self, plaintext):
-        aes = pyaes.AESModeOfOperationCTR(self.key)
+        aes = pyaes.AESModeOfOperationCTR(self.key, pyaes.Counter(initial_value = self.iv))
         return aes.encrypt(plaintext)
     
     ### decrypt(self, ciphertext: encrypted text)
     ### returns plaintext
     def decrypt(self, ciphertext):
-        aes = pyaes.AESModeOfOperationCTR(self.key)
+        aes = pyaes.AESModeOfOperationCTR(self.key, pyaes.Counter(initial_value = self.iv))
         return aes.decrypt(ciphertext)
 ```
 
