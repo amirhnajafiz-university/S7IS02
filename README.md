@@ -1,6 +1,8 @@
 <h1 align="center">
-  AES Encryption
+  S7IS02
 </h1>
+
+<br />
 
 Implementing **AES** _encryption_ and _decryption_ with Python. Data security second project. In this project I used the important data security modules in python.
 
